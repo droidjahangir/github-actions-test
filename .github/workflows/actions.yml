@@ -1,6 +1,27 @@
 name: Actions Wrorkflow
 
 on:
+  push:
+    branches:
+      - master
+      - 'feature/**' # match all branch which start with feature/
+      - '!feature/featC' # ignore this branch
+    # branches-ignore:
+    #   - develop
+    tags:
+      - v1.* # release version or tag. same as branches
+    tags-ignore:
+      - v2
+    paths:
+      - '**.js' # trigger for push any javascript file
+      - '!filename.js' # just ignore this particular js file
+    paths-ignore:
+      - 'docs/**'
+  # pull_request:
+  #   branches:
+  #     - master
+  # repository_dispatch:
+  #   types: [build]
   # schedule:
   #   - cron: '0/5 * * * *'
   #   - cron: '0/6 * * * *'

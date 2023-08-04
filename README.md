@@ -12,7 +12,7 @@ ACTIONs_RUNNER_DEBUG=true
 ACTIONS_STEP_DEBUG=true
 ```
 ### Clone a repository
-```shell
+```YAML
   - name: Checkout
     uses: actions/checkout@v1
 ```
@@ -28,7 +28,7 @@ ACTIONS_STEP_DEBUG=true
 ```
 
 ### Cron schedule expression
-```shell
+```YAML
   on:
     schedule:
       - cron: "* * * * *"
@@ -60,5 +60,44 @@ minimum running time is 5 minute
 0 12 0 1 * --> every january every day
 ```
 `*` --> day of a week
+
+### Manually triggering workflow using repository_dispatch
+
+```YAML
+  on:
+    repository_dispatch:
+      types: [build]
+```
+When we create a post request to github event-type to `build` then this action trigger
+
+```
+https://api.github.com/repos/droidjahangir/github-actions-test/dispatches
+```
+Headers ---> 
+* Accept : application/vnd.github.everest-preview+json
+* Content-Type : application/json
+
+Body > JSON --->
+{
+  "event_type": "build"
+}
+
+Authorization > Type > Basic Auth
+* Password : {{ github auth token }}
+
+then send a `post request`
+
+send payload
+```
+{
+  "event_type": "build",
+  "client_payload": {
+    "env": "production"
+  }
+}
+```
+
+for more read about repository_dispatch you can go this link below : 
+https://developer.github.com/v3/repos/#create-a-repository-dispatch-event
 
 
