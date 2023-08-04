@@ -15,8 +15,8 @@ on:
     paths:
       - '**.js' # trigger for push any javascript file
       - '!filename.js' # just ignore this particular js file
-    paths-ignore:
-      - 'docs/**'
+    # paths-ignore:
+    #   - 'docs/**'
   # pull_request:
   #   branches:
   #     - master
