@@ -40,6 +40,7 @@ example:
 20/15 * * * * --> every 15 minute starting from 20. ex: 14:35, 14:50
 1-3 * * * * --> every minute from 1 through 3. ex: 14:01, 14:02, 14:03
 0 * * * * --> every hour 0 minute ex: 14:00, 15:00
+minimum running time is 5 minute
 ```
 
 `*` --> hour
