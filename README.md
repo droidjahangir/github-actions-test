@@ -101,3 +101,7 @@ for more read about repository_dispatch you can go this link below :
 https://developer.github.com/v3/repos/#create-a-repository-dispatch-event
 
 
+## ENV variables
+docs link below:
+https://docs.github.com/en/actions/learn-github-actions/variables
+
