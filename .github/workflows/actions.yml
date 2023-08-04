@@ -8,8 +8,8 @@ on:
       - '!feature/featC' # ignore this branch
     # branches-ignore:
     #   - develop
-    tags:
-      - v1.* # release version or tag. same as branches
+    # tags:
+    #   - v1.* # release version or tag. same as branches
     tags-ignore:
       - v2
     paths:
