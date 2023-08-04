@@ -12,9 +12,9 @@ on:
     #   - v1.* # release version or tag. same as branches
     tags-ignore:
       - v2
-    paths:
-      - '**.js' # trigger for push any javascript file
-      - '!filename.js' # just ignore this particular js file
+    # paths:
+    #   - '**.js' # trigger for push any javascript file
+    #   - '!filename.js' # just ignore this particular js file
     # paths-ignore:
     #   - 'docs/**'
   # pull_request:
