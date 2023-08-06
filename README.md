@@ -105,3 +105,41 @@ https://developer.github.com/v3/repos/#create-a-repository-dispatch-event
 docs link below:
 https://docs.github.com/en/actions/learn-github-actions/variables
 
+## Encrypt and decrypt a file
+first create a JSON file. ex: secret.json
+
+```json
+  {
+    "api_key": "test api key",
+    "api_user": "test api user"
+  }
+```
+
+for encryption we need to do this command below :-
+```
+  gpg --symmetric --cipher-algo AES256 secret.json
+```
+pop up an window to ask a password. In this scenario we pass a password like `testpassword`
+
+for decryption we need to set this password at github > settings > secret as `PASSPHRASE : testpasswrod`
+
+
+### Sequential execution
+```yml
+  run-windows-commands:
+    runs-on: windows-latest
+    needs: ['run-shell-command']
+    steps:
+      - name: Directory PowerShell
+        run: Get-Location
+      - name: Directory Bash
+        run: pwd
+        shell: bash
+```
+If we don't want to run program in parallel then we have to define `needs` section. here, `run-windows-commands` this job run after finishing `run-shell-command` this job
+
+
+### run job even after fail a steps
+```
+  continue-on-error: true
+```
